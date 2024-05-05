@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexer Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>RESULTADO DEL CODIGO ANALIZADO</h1>
+        
+        <div class="code-section">
+            <p>CODIGO ANALIZADO:</p>
+            <pre>{{ code }}</pre>
+        </div>
+
+        <div class="tokens-section">
+            <p>LISTA DE TOKENS:</p>
+            <ul class="tokens-list">
+                {% for token in tokens %}
+                    <li>{{ token.type }}: {{ token.value }} (Line: {{ token.line }}, Position: {{ token.lexpos }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div id="resultContainer">
+            {% if resultado_sintactico.status == 'error' %}
+                <div class="error-section">
+                    <p>ERROR DE SINTAXIS QUE SE HAYAN ENCONTRADO:</p>
+                    <pre>{{ resultado_sintactico.message }}</pre>
+                </div>
+            {% endif %}
+        </div>
+
+        <div id="debugContainer">
+            {% if debug_messages %}
+                <div class="debug-section">
+                    <p>MENSAJES EN LA PARTE DE DEPURACION:</p>
+                    <pre>
+                        {% for message in debug_messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </pre>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+</body>
+</html>

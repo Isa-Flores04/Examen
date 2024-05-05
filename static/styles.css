@@ -1,0 +1,40 @@
+/* Estilos generales para body y html */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff; /* Color de fondo claro predeterminado */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos para el encabezado */
+.encabezado {
+    width: 450%; /* Ajusta este valor según tu preferencia */
+    background-image: url("../static/encabezado2.png");
+    background-repeat: no-repeat;
+    background-size: contain; /* Cambiado de 'cover' a 'contain' */
+    background-position: top center; /* Cambiado de 'top' a 'top center' */
+    height: 50vh;
+}
+
+/* Estilos para el contenedor */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(133, 99, 6, 0.1);
+    text-align: center;
+}
+
+/* Estilos adicionales para el modo oscuro */
+.dark-theme {
+    background-color: #222222;
+    color: #ffffff;
+}

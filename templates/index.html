@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Base de Datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Estilos adicionales para el interruptor */
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .toggle-label span {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado"></div> <!-- Aquí va tu imagen de encabezado -->
+
+    <div class="container">
+        <h1>¡Comencémos!</h1>
+        <form action="/crear-base-de-datos" method="POST">
+            <input type="text" name="nombre_db" placeholder="Ingresa un nombre" class="input-field">
+            <button type="submit" class="btn">Crear Base de Datos</button>
+        </form>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+
+    <label class="toggle-label">
+        <span>Modo Claro</span>
+        <input type="checkbox" id="toggle-theme">
+        <span>Modo Oscuro</span>
+    </label>
+
+    <script>
+        var toggle = document.getElementById("toggle-theme");
+        toggle.addEventListener("change", function() {
+            document.body.classList.toggle("dark-theme");
+        });
+
+        // Función para cambiar el color de fondo de la página según el valor del deslizador
+        function cambiarColorFondo() {
+            var slider = document.getElementById("colorSlider");
+            var body = document.body;
+            body.style.backgroundColor = `hsl(${slider.value}, 50%, 50%)`; // Cambiar el color de fondo utilizando HSL
+        }
+
+        // Evento para detectar cambios en el deslizador y llamar a la función para cambiar el color de fondo
+        document.getElementById("colorSlider").addEventListener("input", cambiarColorFondo);
+    </script>
+</body>
+</html>
